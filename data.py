@@ -17,15 +17,20 @@ import random
 import scipy.io
 import h5py
 from .func import normalize
-# make every results identical
-np.random.seed(42)
 
 # better image output
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+
+# ignore the useless warning (SciPy issue #5998)
+import warnings
+
 mpl.rc('axes', labelsize=14)
 mpl.rc('xtick', labelsize=12)
 mpl.rc('ytick', labelsize=12)
+
+# make every results identical
+np.random.seed(42)
 
 # create an images folder
 PROJECT_ROOT_DIR = "."
@@ -33,8 +38,6 @@ IMAGE_FILE = "EddyML_images"
 IMAGES_PATH = os.path.join(PROJECT_ROOT_DIR, IMAGE_FILE)
 os.makedirs(IMAGES_PATH, exist_ok=True)
 
-# ignore the useless warning (SciPy issue #5998)
-import warnings
 warnings.filterwarnings(action="ignore", message="^internal gelsd")
 
 
